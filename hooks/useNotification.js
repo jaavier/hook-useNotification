@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const Context = React.createContext();
 
@@ -7,12 +7,7 @@ function NotificationProvider({ children }) {
 	const addNotification = (temporalNotification) => {
 		setNotifications([ ...notifications, temporalNotification ]);
 	};
-	useEffect(() => {}, [ notifications ]);
-
-	const value = {
-		notifications,
-		addNotification
-	};
+	const value = { notifications, addNotification };
 	return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 
